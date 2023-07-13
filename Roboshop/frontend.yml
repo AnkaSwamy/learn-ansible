@@ -14,18 +14,18 @@
 
     - name: create directory
       ansible.builtin.file:
-         path: /usr/share/nginx/html
+         path: /usr/share/nginx/html/*
          state: directory
 
     - name: Download and Extract frontend content
       ansible.builtin.unarchive:
         src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
-        dest: /usr/share/nginx/html
+        dest: /usr/share/nginx/html/*
         remote_src: yes
 
     - name: Copy roboshop configuration
       ansible.builtin.copy:
-        src: roboshop.conf
+        src: /roboshop.conf
         dest: /etc/nginx/default.d/roboshop.conf
 
     - name: Start nginx service
