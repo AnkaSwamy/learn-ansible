@@ -5,6 +5,6 @@
       ansible.builtin.debug:
         msg: Hello world
 
-- name: Include task list in a play
-  ansible.builtin.include_tasks:
-      file: universe.yml
+    - name: Include task list in a play
+      ansible.builtin.include_tasks:
+        file: universe.yml
