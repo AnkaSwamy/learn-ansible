@@ -1,0 +1,10 @@
+- name: print Hello world
+  hosts: all
+  tasks:
+    - name: print Hello world
+      ansible.builtin.debug:
+        msg: Hello world
+
+- name: Include task list in a play
+  ansible.builtin.include_tasks:
+      file: universe.yml
