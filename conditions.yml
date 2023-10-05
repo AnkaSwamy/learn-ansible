@@ -1,17 +1,13 @@
-- name: Demo  on conditions
+- name: Demo on conditions
   hosts: localhost
   connection: local
   tasks:
-    - name: print hello universe
+    - name: Print Hello Universe
       ansible.builtin.debug:
-       msg: Hello universe
+        msg: Hello Universe
+      when: what == "universe"
 
-       when: what == "universe"
-
-    - name: print hello world
+    - name: Print Hello World
       ansible.builtin.debug:
-        msg: Hello world
-
-        when: what == "world"
-
-
+        msg: Hello World
+      when: what == "world"
