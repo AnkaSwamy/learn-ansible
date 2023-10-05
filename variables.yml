@@ -1,8 +1,20 @@
-- name: Declare a variable
-  hosts: all
-  vars:
-    url: example.com
+#- name: Declare a variable
+#  hosts: all
+#  vars:
+#    url: example.com
+#  tasks:
+#    - name: print the url variable
+#      ansible.builtin.debug:
+#         msg: url - {{ url }}
+
+- name: Register Variable
+  hosts: localhost
+  connection: local
   tasks:
-    - name: print the url variable
+    - name: Shell Command
+      ansible.builtin.shell: uptime
+      register: output
+
+    - name: Print O/P
       ansible.builtin.debug:
-         msg: url - {{ url }}
+        msg: "{{ output.stdout | split(' ') | last }}"
